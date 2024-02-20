@@ -1,0 +1,259 @@
+:root {
+
+    --Blue: hsl(246, 80%, 60%);
+    --Light-red--work-: hsl(15, 100%, 70%);
+    --Soft-blue--play-: hsl(195, 74%, 62%);
+    --Light-red--study-: hsl(348, 100%, 68%);
+    --Lime-green--exercise-: hsl(145, 58%, 55%);
+    --Violet--social-: hsl(264, 64%, 52%);
+    --Soft-orange--self-care-: hsl(43, 84%, 65%);
+    --Very-dark-blue: hsl(226, 43%, 10%);
+    --Dark-blue: hsl(235, 46%, 20%);
+    --Desaturated-blue: hsl(235, 45%, 61%);
+    --Pale-Blue: hsl(236, 100%, 87%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background-color: var(--Very-dark-blue);
+    gap: 0;
+    height: 100vh;
+    color: white;
+    padding: 1rem;
+}
+
+p {
+    color: var(--Pale-Blue);
+    font-size: 0.81rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+    width: 48rem;
+}
+
+main>div {
+    /* overflow: hidden; */
+    border-radius: 0.7rem;
+}
+
+.person {
+    padding: 0;
+    background-color: var(--Dark-blue);
+    grid-row: 1/-1;
+    overflow: hidden;
+}
+
+.profile {
+    border-radius: 0.5rem;
+    background-color: var(--Blue);
+    padding: 1.5rem;
+    padding-bottom: 5rem;
+
+}
+
+figcaption {
+    width: 3rem;
+}
+
+.profile img {
+    width: 100%;
+}
+
+.when {
+    color: var(--Pale-Blue);
+    padding: 2rem;
+    text-align: center;
+}
+
+.when p {
+    padding-block: 0.5rem;
+    cursor: pointer;
+    transition: all 1s linear;
+    transform-origin: center;
+}
+
+.plan {
+    text-transform: capitalize;
+}
+
+/* ----------------- */
+.cntr {
+    padding-top: 2rem;
+    background-color: aqua;
+    /* position: relative; */
+}
+
+.cntr>div {
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    height: 12rem;
+
+}
+
+.inner-cntr {
+    background-color: var(--Dark-blue);
+    padding: 1rem;
+    height: 100%;
+    border-radius: 0.6rem;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwads;
+
+}
+
+.inner-cntr:hover{
+    background-color: var(--Desaturated-blue);
+}
+.hrs {
+    margin-inline: 0.5rem;
+}
+
+.add {
+    color: white;
+    position: relative;
+    
+}
+
+.add::after {
+    content: '';
+    position: absolute;
+    border: 2px solid white;
+    width: 100%;
+    right: 0;
+    left: 0;
+    color: white;
+    margin-block: 1rem;
+
+}
+.when p:hover{
+color: white;
+}
+@keyframes roller {
+
+    0% {
+        transform: translateZ(-100px);
+    }
+
+    25% {
+        transform: translateZ(100px) translateY(-100%);
+    }
+
+    90% {
+        transform: translateY(25%);
+        z-index: 999999;
+    }
+
+    100% {
+        transform: translateZ(100%);
+        transform: translateY(0);
+        z-index: 99999;
+
+
+    }
+}
+
+.inner-cntr>div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cntr:nth-child(2) {
+    background: url(./images/icon-work.svg);
+    background-color: var(--Light-red--work-);
+}
+
+.cntr:nth-child(2)>div>.inner-cntr {
+    animation-delay: 0.1s;
+}
+
+.cntr:nth-child(3) {
+    background: url(./images/icon-play.svg);
+    background-color: var(--Soft-blue--play-);
+
+}
+
+.cntr:nth-child(3)>div>.inner-cntr {
+    animation-delay: 0.3s;
+
+}
+
+.cntr:nth-child(4) {
+    background: url(./images/icon-study.svg);
+    background-color: var(--Light-red--study-);
+}
+
+.cntr:nth-child(4)>div>.inner-cntr {
+    animation-delay: 0.6s;
+
+}
+
+.cntr:nth-child(5) {
+    background: url(./images/icon-exercise.svg);
+    background-color: var(--Lime-green--exercise-);
+}
+
+.cntr:nth-child(5)>div>.inner-cntr {
+    animation-delay: 1.5s;
+
+}
+
+.cntr:nth-child(6) {
+    background: url(./images/icon-exercise.svg);
+    background-color: var(--Violet--social-);
+
+}
+
+.cntr:nth-child(6)>div>.inner-cntr {
+    animation-delay: 1.8s;
+
+}
+
+.cntr:nth-child(7) {
+    background: url(./images/icon-self-care.svg);
+    background-color: var(--Soft-orange--self-care-);
+
+}
+
+.cntr:nth-child(7)>div>.inner-cntr {
+    animation-delay: 2.1s;
+}
+
+
+@media (max-width:700px) {
+    main {
+        width: auto;
+        grid-template-columns: 1fr !important;
+    }
+
+
+
+    .profile,
+    .when {
+        padding-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .when {
+        justify-content: space-evenly;
+    }
+}
